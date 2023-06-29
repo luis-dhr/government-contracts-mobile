@@ -1,7 +1,6 @@
-import { Contract } from '../../modules/contracts/domain/Contract'
-import { ContractRepository } from '../../modules/contracts/domain/ContractRepository'
+import { Contract, ContractRepository } from '../../../modules/contracts/domain'
 import { PropsWithChildren, createContext, useCallback, useEffect, useState } from 'react'
-import { getAllContracts } from '../../modules/contracts/application/get-all/getAllContracts'
+import { getAllContracts } from '../../../modules/contracts/application'
 
 export interface ContractsContextState {
   contracts: Contract[]

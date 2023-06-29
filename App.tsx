@@ -1,18 +1,18 @@
-import { ContractsContextProvider } from './sections/contracts/ContractsContext'
+// import { ContractsContextProvider } from './sections/contracts/ContractsContext'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-import { createApiContractRepository } from './modules/contracts/infrastructure/ApiContractRepository'
+// import { createApiContractRepository } from './modules/contracts/infrastructure/ApiContractRepository'
 
 export default function App () {
-  const repository = createApiContractRepository()
+  // const repository = createApiContractRepository()
 
   return (
-    <ContractsContextProvider repository={repository}>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style='auto' />
-      </View>
-    </ContractsContextProvider>
+  // <ContractsContextProvider repository={repository}>
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style='auto' />
+    </View>
+  // </ContractsContextProvider>
   )
 }
 

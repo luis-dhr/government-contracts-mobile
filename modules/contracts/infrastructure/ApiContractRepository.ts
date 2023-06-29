@@ -17,9 +17,15 @@ async function get (id: string) {
 }
 
 async function getAll () {
-  const contracts = await fetch('/api/contracts').then(
-    (response) => response.json() as Promise<Contract[]>
+  const data = await fetch('https://api.datos.gob.mx/v2/Records/?page=1&pageSize=100').then(
+    (response) => response.json()
   )
+  console.log('🚀 ~ file: ApiContractRepository.ts:23 ~ getAll ~ data:', data)
 
-  return contracts
+  // console.log('🚀 ~ file: ApiContractRepository.ts:25 ~ data.results.forEach ~')
+  // data.results.forEach((element: any) => {
+  //   console.log(element.compiledRelease.contracts[0].title)
+  // })
+
+  return []
 }
