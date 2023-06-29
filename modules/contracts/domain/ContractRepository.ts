@@ -3,6 +3,7 @@ import { Contract } from './Contract'
 export interface ContractRepository {
   get: (id: string) => Promise<Contract | null>
   getAll: () => Promise<Contract[]>
+  // getAllByRange: (page: number) => Promise<Contract[]>
 }
 
 export type getContract = (id: string) => Promise<Contract | null>
