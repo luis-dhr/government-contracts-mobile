@@ -4,6 +4,7 @@ import { useColorScheme } from 'react-native'
 
 export function RootLayoutNav () {
   const colorScheme = useColorScheme()
+  // const repository = createApiTenderRepository()
 
   return (
     <>
