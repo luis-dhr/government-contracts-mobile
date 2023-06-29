@@ -1,19 +1,23 @@
-const tintColorLight = '#2f95dc'
-const tintColorDark = '#fff'
+export const palette = {
+  dark: '#393939',
+  light: '#f6f6f6',
+  darkSecondary: '#4f5156',
+  lightSecondary: '#e9e9e9',
+  primary: '#268386',
+  secondary: '#11819e',
+  tertiary: '#3f7bae',
+  quaternary: '#7371ae'
+}
 
 export default {
   light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight
+    text: palette.dark,
+    background: palette.light,
+    main: palette.lightSecondary
   },
   dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark
+    text: palette.light,
+    background: palette.dark,
+    main: palette.darkSecondary
   }
 }

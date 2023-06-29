@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native'
 
 export const contractFooterStyles = StyleSheet.create({
   contractFooter: {
-    flex: 1,
-    backgroundColor: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center'
   }
 })
