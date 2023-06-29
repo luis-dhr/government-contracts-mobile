@@ -1,7 +1,8 @@
+import React from 'react'
 import { ParagraphProps } from './ParagraphProps'
-import { Text } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 
-export function Paragraph ({
+function ParagraphComponent ({
   children,
   align = 'left',
   color = '#333333',
@@ -10,22 +11,27 @@ export function Paragraph ({
   transform = 'none',
   weight = 'normal'
 }: ParagraphProps) {
+  const styles = StyleSheet.create({
+    text: {
+      color,
+      fontWeight: weight,
+      fontSize: size,
+      lineHeight: size + 4,
+      textAlign: align,
+      textTransform: transform,
+      flex: 1
+    }
+  })
+
   return (
     <Text
       adjustsFontSizeToFit
       numberOfLines={lines}
-      style={{
-        color,
-        // fontFamily: weight,
-        fontWeight: weight,
-        fontSize: size,
-        lineHeight: size + 4,
-        textAlign: align,
-        textTransform: transform,
-        width: 'auto'
-      }}
+      style={styles.text}
     >
       {children}
     </Text>
   )
 }
+
+export const Paragraph = React.memo(ParagraphComponent)
