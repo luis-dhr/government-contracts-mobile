@@ -18,3 +18,7 @@ web-build/
 
 # Package lock
 package-lock.json
+
+# Eslint
+.eslintcache
+.eslintrc.cjs
