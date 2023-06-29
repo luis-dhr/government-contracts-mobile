@@ -22,3 +22,7 @@ package-lock.json
 # Eslint
 .eslintcache
 .eslintrc.cjs
+
+# Environtment variables
+.env
+.env.*
