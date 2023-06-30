@@ -1,4 +1,4 @@
-import { Text as DefaultText, View as DefaultView } from 'react-native'
+import { View as DefaultView } from 'react-native'
 import { useThemeColor } from '../hooks/useThemeColor'
 
 type ThemeProps = {
@@ -6,15 +6,7 @@ type ThemeProps = {
   darkColor?: string
 }
 
-export type TextProps = ThemeProps & DefaultText['props']
 export type ViewProps = ThemeProps & DefaultView['props']
-
-export function Text (props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')
-
-  return <DefaultText adjustsFontSizeToFit style={[{ color }, style]} {...otherProps} />
-}
 
 export function View (props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props

@@ -1,18 +1,16 @@
-import Colors from '../constants/Colors'
-import { ContractCard } from '../sections/contracts/components/contract-card/ContractCard'
-import { FontAwesome } from '@expo/vector-icons'
-import { Pressable, StyleSheet, useColorScheme } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { TenderList } from '../sections/tender-list/components/TenderList'
 import { View } from '../sections/shared/components/Themed'
-import { useRouter } from 'expo-router'
 
 export default function ContractListScreen () {
-  const colorScheme = useColorScheme()
-  const router = useRouter()
+  // const colorScheme = useColorScheme()
+  // const router = useRouter()
 
   return (
     <View style={styles.container}>
-      <ContractCard />
-      <Pressable onPress={() => { router.push('/modal') }}>
+      {/* <TenderCard /> */}
+      <TenderList />
+      {/* <Pressable onPress={() => { router.push('/modal') }}>
         {({ pressed }) => (
           <FontAwesome
             name='info-circle'
@@ -21,7 +19,7 @@ export default function ContractListScreen () {
             style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
           />
         )}
-      </Pressable>
+      </Pressable> */}
     </View>
   )
 }
@@ -29,8 +27,8 @@ export default function ContractListScreen () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'flex-start',
-    padding: 8
+    padding: 16
   }
 })

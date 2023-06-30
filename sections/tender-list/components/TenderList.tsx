@@ -1,12 +1,17 @@
-import { FlatList, SafeAreaView, View } from 'react-native'
+import { FlatList, SafeAreaView } from 'react-native'
+import { TenderCard } from './card/TenderCard'
+import { useRouter } from 'expo-router'
 
 export function TenderList () {
+  const router = useRouter()
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ width: '100%', borderWidth: 1 }}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => <View />}
+        renderItem={({ item }) => <TenderCard title={item.title} onPress={() => { router.push('/modal') }} />}
         keyExtractor={item => item.id}
+        style={{ width: '100%', borderWidth: 1 }}
       />
     </SafeAreaView>
   )
@@ -24,5 +29,9 @@ const DATA = [
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 'Third Item'
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d73',
+    title: 'Fourth Item'
   }
 ]

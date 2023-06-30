@@ -7,15 +7,7 @@ export const tenderCardStyles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 8,
     padding: 16,
-    marginBottom: 8,
-    marginTop: 8
-  },
-  contractTitle: {
-    fontSize: 24,
-    fontFamily: 'Overpass-Bold'
-  },
-  contractSubtitle: {
-    fontSize: 18,
-    fontFamily: 'Overpass-Medium'
+    marginVertical: 8,
+    elevation: 8
   }
 })

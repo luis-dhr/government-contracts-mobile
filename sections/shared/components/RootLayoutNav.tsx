@@ -22,6 +22,7 @@ export function RootLayoutNav () {
             name='modal'
             options={{
               presentation: 'modal',
+              animation: 'slide_from_right',
               title: 'Details',
               headerTitleStyle: { fontSize: 18, fontFamily: 'Montserrat' },
               statusBarStyle: 'dark'

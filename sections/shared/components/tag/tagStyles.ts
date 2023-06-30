@@ -5,14 +5,14 @@ export const tagStyles = StyleSheet.create({
   tag: {
     alignItems: 'center',
     backgroundColor: palette.primary,
-    borderRadius: 16,
-    paddingHorizontal: 12,
+    borderRadius: 4,
+    paddingHorizontal: 8,
     paddingVertical: 4,
     marginVertical: 4
   },
   tagText: {
     color: palette.light,
-    fontSize: 16,
-    fontFamily: 'Overpass-Medium'
+    fontSize: 14,
+    fontFamily: 'Overpass'
   }
 })
