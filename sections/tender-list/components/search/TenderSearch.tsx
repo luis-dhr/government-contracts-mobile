@@ -1,17 +1,18 @@
-import Colors from '../../../../constants/Colors'
+import Colors, { palette } from '../../../../constants/Colors'
 import { FontAwesome } from '@expo/vector-icons'
 import { StyleSheet, TextInput, useColorScheme } from 'react-native'
 import { Flex, View } from '../../../shared/components'
 
 export function TenderSearch ({ value = '', onChange }: { value?: string, onChange?: (value: string) => void }) {
   const colorScheme = useColorScheme()
+  const shadowColor = colorScheme === 'light' ? palette.secondary : palette.lightTertiary
   const backgroundColor = Colors[colorScheme ?? 'light'].main
   const color = Colors[colorScheme ?? 'light'].text
   const textSecondary = Colors[colorScheme ?? 'light'].textSecondary
 
   return (
     <View style={styles.container}>
-      <Flex gap={8} style={{ backgroundColor, paddingLeft: 12, borderRadius: 16 }}>
+      <Flex gap={8} style={{ backgroundColor, paddingLeft: 12, borderRadius: 16, elevation: 8, shadowColor }}>
         <FontAwesome name='search' size={16} color={color} />
 
         <TextInput
