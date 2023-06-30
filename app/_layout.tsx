@@ -17,11 +17,10 @@ export const unstable_settings = {
 
 export default function RootLayout () {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Cabin: require('../assets/fonts/Cabin-Bold.ttf'),
     Overpass: require('../assets/fonts/Overpass-Regular.ttf'),
     'Overpass-Medium': require('../assets/fonts/Overpass-Medium.ttf'),
     'Overpass-Bold': require('../assets/fonts/Overpass-Bold.ttf'),
-    Montserrat: require('../assets/fonts/Montserrat-Bold.ttf'),
     ...FontAwesome.font
   })
 

@@ -14,7 +14,7 @@ export function RootLayoutNav () {
             name='index'
             options={{
               title: 'Contract list ',
-              headerTitleStyle: { fontSize: 18, fontFamily: 'Montserrat' },
+              headerTitleStyle: { fontSize: 18, fontFamily: 'Cabin' },
               statusBarStyle: 'dark'
             }}
           />
@@ -24,7 +24,7 @@ export function RootLayoutNav () {
               presentation: 'modal',
               animation: 'slide_from_right',
               title: 'Details',
-              headerTitleStyle: { fontSize: 18, fontFamily: 'Montserrat' },
+              headerTitleStyle: { fontSize: 18, fontFamily: 'Cabin' },
               statusBarStyle: 'dark'
             }}
           />
