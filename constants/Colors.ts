@@ -5,7 +5,7 @@ export const palette = {
   lightSecondary: '#F0FAFA',
   darkTertiary: '#333333',
   lightTertiary: '#7f7f7f',
-  darkQuaternary: '#4a4a4a',
+  darkQuaternary: '#666666',
   primary: '#268386',
   secondary: '#2C5C9C'
 }

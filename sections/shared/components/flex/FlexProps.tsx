@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 import { ViewStyle } from 'react-native'
 
-export interface FlexProps {
-  children: ReactNode
+export interface FlexProps extends PropsWithChildren {
+  // children: ReactNode
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline'
   background?: string
   direction?: 'row' | 'column'

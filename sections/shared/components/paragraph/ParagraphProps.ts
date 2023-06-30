@@ -1,8 +1,7 @@
-import { ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 import { TextProps } from 'react-native'
 
-export interface ParagraphProps {
-  children: ReactNode
+export interface ParagraphProps extends PropsWithChildren {
   lightColor?: string
   darkColor?: string
   size?: number
