@@ -27,8 +27,9 @@ export default function ContractListScreen () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    padding: 16
+    paddingHorizontal: 16,
+    paddingTop: 8
   }
 })

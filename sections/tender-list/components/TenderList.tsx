@@ -1,5 +1,6 @@
-import { FlatList, SafeAreaView } from 'react-native'
+import { FlatList, SafeAreaView, View } from 'react-native'
 import { TenderCard } from './card/TenderCard'
+import { TenderSearch } from './search/TenderSearch'
 import { useRouter } from 'expo-router'
 
 export function TenderList () {
@@ -11,7 +12,12 @@ export function TenderList () {
         data={DATA}
         renderItem={({ item }) => <TenderCard title={item.title} onPress={() => { router.push('/modal') }} />}
         keyExtractor={item => item.id}
-        style={{ width: '100%', borderWidth: 1 }}
+        style={{ width: '100%' }}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={() => <TenderSearch />}
+        stickyHeaderIndices={[0]}
+        ListFooterComponent={() => <View style={{ height: 40 }} />}
+        // ListEmptyComponent={() => <View style={{ height: 40 }} />}
       />
     </SafeAreaView>
   )
