@@ -5,6 +5,7 @@ import { memo } from 'react'
 export const Flex = memo((props: FlexProps) => {
   const {
     direction = 'row',
+    background = 'transparent',
     wrap = 'nowrap',
     justify = 'center',
     align = 'center',
@@ -14,6 +15,7 @@ export const Flex = memo((props: FlexProps) => {
 
   const flexStyle: ViewStyle = {
     display: 'flex',
+    backgroundColor: background,
     flexDirection: direction,
     alignItems: align,
     justifyContent: justify,
@@ -23,9 +25,5 @@ export const Flex = memo((props: FlexProps) => {
     ...style
   }
 
-  return (
-    <View style={flexStyle}>
-      {props.children}
-    </View>
-  )
+  return <View style={flexStyle}>{props.children}</View>
 })
