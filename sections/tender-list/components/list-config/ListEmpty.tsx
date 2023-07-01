@@ -12,7 +12,7 @@ export function ListEmpty () {
   return (
     <View style={listEmptyStyles.listEmpty}>
       <Paragraph color={color} size={18} weight='medium' align='center'>
-        {!pageIsLoaded ? 'Cargando...' : 'No se encontraron resultados :c'}
+        {!pageIsLoaded ? 'Cargando...' : 'Resultados no disponible :c'}
       </Paragraph>
     </View>
   )

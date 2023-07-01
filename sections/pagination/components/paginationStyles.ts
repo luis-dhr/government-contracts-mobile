@@ -6,13 +6,12 @@ const { width } = Dimensions.get(dim)
 export const paginationStyles = StyleSheet.create({
   pagination: {
     bottom: 0,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
+    padding: 16,
     position: 'absolute',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     borderTopWidth: 1,
     width
   }

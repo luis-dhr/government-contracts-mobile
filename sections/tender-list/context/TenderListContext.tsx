@@ -18,7 +18,7 @@ export const TenderListContextProvider = ({
 }: PropsWithChildren<{ repository: TenderRepository }>) => {
   const [tenderList, setTenderList] = useState<Tender[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const [maxNumberOfPages, setMaxNumberOfPages] = useState<number>(0)
+  const [maxNumberOfPages, setMaxNumberOfPages] = useState<number>(1)
   const [pageIsLoaded, setPageIsLoaded] = useState<boolean>(false)
 
   const getTenderList = useCallback(async () => {

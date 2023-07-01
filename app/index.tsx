@@ -7,23 +7,19 @@ import { useTenderList } from '../sections/tender-list/hooks/useTenderList'
 
 export default function TenderListScreen () {
   const {
-    currentPage, filteredTenderList, maxNumberOfPages, pageIsLoaded,
-    searchValue, onNext, onPrevious, setSearchValue
+    tenderList, filteredTenderList, pageIsLoaded, searchValue,
+    onNext, onPrevious, setSearchValue
   } = useTenderList()
 
   return (
     <View style={styles.container}>
-      {pageIsLoaded && <TenderSearch value={searchValue} onChange={setSearchValue} />}
+      {(pageIsLoaded && tenderList.length > 0) &&
+        <TenderSearch value={searchValue} onChange={setSearchValue} />}
 
       <TenderList tenderList={filteredTenderList} />
 
-      {(maxNumberOfPages > 1) &&
-        <Pagination
-          current={currentPage}
-          max={maxNumberOfPages}
-          onNext={onNext}
-          onPrevious={onPrevious}
-        />}
+      {(tenderList.length > 0) &&
+        <Pagination onNext={onNext} onPrevious={onPrevious} />}
     </View>
   )
 }
@@ -33,7 +29,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    paddingHorizontal: 16,
-    paddingTop: 8
+    padding: 8
   }
 })
