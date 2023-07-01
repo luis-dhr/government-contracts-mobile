@@ -1,12 +1,19 @@
 import { API_URL } from '@env'
-import { TenderFromApi, adaptTender } from './adapter-service/adaptTender'
-import { TenderRepository } from '../domain'
+import { TenderFromApi } from './adapter-service/apiEntities'
+import { Tender, TenderRepository } from '../domain'
+import { adaptTender } from './adapter-service/adaptTender'
 
 export function createApiTenderRepository (): TenderRepository {
   return { getAll }
 }
 
-export async function getAll (page = 1) {
+/**
+ * Fetches a list of tenders from the API and returns them as an array of Tender objects.
+ * If an error occurs, an empty array is returned.
+ * @param page - The page number to fetch (Default: 1)
+ * @returns An array of Tender objects representing the fetched tenders.
+ */
+export async function getAll (page = 1): Promise<Tender[]> {
   try {
     const data = await fetch(`${API_URL}?page=${page}&pageSize=20`).then(
       (response) => response.json()
@@ -17,6 +24,8 @@ export async function getAll (page = 1) {
         adaptTender(result.compiledRelease)
       )
     }
+
+    return []
   } catch (error) {
     return []
   }

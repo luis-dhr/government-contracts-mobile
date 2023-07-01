@@ -1,15 +1,7 @@
-import { ContractFromApi, adaptContract } from './adaptContract'
-import { ParticipantFromApi, adaptParticipant } from './adaptParticipant'
 import { Tender } from '../../domain'
-
-export interface TenderFromApi {
-  id: string
-  tender: { id: string, title?: string }
-  publisher: { name: string, uri: string }
-  date: string
-  contracts: ContractFromApi[]
-  parties: ParticipantFromApi[]
-}
+import { TenderFromApi } from './apiEntities'
+import { adaptContract } from './adaptContract'
+import { adaptParticipant } from './adaptParticipant'
 
 export function adaptTender (data: TenderFromApi): Tender {
   const defaultTitle = 'Licitación sin título'

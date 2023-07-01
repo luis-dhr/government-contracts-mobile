@@ -1,13 +1,5 @@
-import { Identifier, Participant } from '../../domain'
-
-export interface ParticipantFromApi {
-  id: string
-  name: string
-  contactPoint: { name: string }
-  identifier: Identifier
-  additionalIdentifiers: Identifier[]
-  roles: string[]
-}
+import { Participant } from '../../domain'
+import { ParticipantFromApi } from './apiEntities'
 
 export function adaptParticipant (participant: ParticipantFromApi): Participant {
   return {

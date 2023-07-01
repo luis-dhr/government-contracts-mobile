@@ -1,14 +1,6 @@
 import { ContractDetails } from '../../domain'
+import { ContractDetailsFromApi } from './apiEntities'
 import { getCurrencyValue } from './getCurrencyValue'
-
-export interface ContractDetailsFromApi {
-  originalCurrencyValue: { amount: number, currency: string }
-  minValue: { amount: number, currency: string }
-  maxValue: { amount: number, currency: string }
-  priceScheme: string
-  multiyear: boolean
-  contractType: string
-}
 
 export function adaptContractDetails (contractDetails: ContractDetailsFromApi): ContractDetails {
   return {

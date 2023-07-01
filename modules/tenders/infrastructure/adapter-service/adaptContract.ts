@@ -1,18 +1,8 @@
 import { Contract } from '../../domain'
-import { ContractDetailsFromApi, adaptContractDetails } from './adaptContractDetails'
+import { ContractFromApi } from './apiEntities'
+import { adaptContractDetails } from './adaptContractDetails'
 import { adaptPeriod } from './adaptPeriod'
 import { getCurrencyValue } from './getCurrencyValue'
-
-export interface ContractFromApi {
-  id: string
-  buyers: Array<{ name: string }>
-  contractDetails: ContractDetailsFromApi
-  dateSigned: string
-  period: { startDate: string, endDate: string, durationInDays: number }
-  suppliers: Array<{ name: string }>
-  title: string
-  valueWithTax: { amount: number, currency: string }
-}
 
 export function adaptContract (contract: ContractFromApi): Contract {
   return {

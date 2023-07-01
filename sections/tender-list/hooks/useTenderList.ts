@@ -8,17 +8,17 @@ export function useTenderList () {
   const [searchValue, setSearchValue] = useState('')
 
   const onNext = () => {
-    if (currentPage < maxNumberOfPages) {
-      setSearchValue('')
-      setCurrentPage(currentPage + 1)
-    }
+    if (currentPage === maxNumberOfPages || !pageIsLoaded) return
+
+    setSearchValue('')
+    setCurrentPage(currentPage + 1)
   }
 
   const onPrevious = () => {
-    if (currentPage > 1) {
-      setSearchValue('')
-      setCurrentPage(currentPage - 1)
-    }
+    if (!pageIsLoaded || currentPage === 1) return
+
+    setSearchValue('')
+    setCurrentPage(currentPage - 1)
   }
 
   const filteredTenderList = useMemo(() => {
@@ -29,10 +29,10 @@ export function useTenderList () {
 
   return {
     filteredTenderList,
+    maxNumberOfPages,
     pageIsLoaded,
     searchValue,
     tenderList,
-    maxNumberOfPages,
     onNext,
     onPrevious,
     setSearchValue
