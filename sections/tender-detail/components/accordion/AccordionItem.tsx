@@ -3,7 +3,7 @@ import { LayoutAnimation, Platform, TouchableOpacity, UIManager, View } from 're
 import { Paragraph } from '../../../shared/components/paragraph/Paragraph'
 import { PropsWithChildren, memo, useCallback, useState } from 'react'
 import { accordionItemStyles } from './accordionItemStyles'
-import { getColor } from '../../../shared/helpers/getColor'
+import { getColor } from '../../../shared/helpers'
 
 if (Platform.OS === 'android') {
   UIManager.setLayoutAnimationEnabledExperimental(true)

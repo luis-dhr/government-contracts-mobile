@@ -1,4 +1,4 @@
-import { getColor } from '../../shared/helpers/getColor'
+import { getColor } from '../../shared/helpers'
 import { palette } from '../../../constants/Colors'
 import { useColorSchemeContext } from '../../shared/hooks/useColorSchemeContext'
 

@@ -3,8 +3,7 @@ import { useTenderListContext } from './useTenderListContext'
 
 export function useTenderList () {
   const {
-    tenderList, currentPage, maxNumberOfPages,
-    pageIsLoaded, setCurrentPage
+    tenderList, currentPage, maxNumberOfPages, pageIsLoaded, setCurrentPage
   } = useTenderListContext()
   const [searchValue, setSearchValue] = useState('')
 

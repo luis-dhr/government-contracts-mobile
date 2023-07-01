@@ -1,11 +1,11 @@
 import { CurrentPage, PageEllipsis } from './current'
 import { Flex, View } from '../../shared/components'
 import { NextButton, PreviousButton } from './control'
-import { getColor } from '../../shared/helpers/getColor'
+import { getColor } from '../../shared/helpers'
 import { paginationStyles } from './paginationStyles'
 import { palette } from '../../../constants/Colors'
 import { useColorSchemeContext } from '../../shared/hooks/useColorSchemeContext'
-import { useTenderListContext } from '../../tender-list/hooks/useTenderListContext'
+import { useTenderListContext } from '../../tender-list/hooks'
 
 interface PaginationProps {
   onPrevious: () => void

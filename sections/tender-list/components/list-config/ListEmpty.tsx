@@ -1,10 +1,10 @@
 import { ActivityIndicator, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Paragraph, View } from '../../../shared/components'
-import { getColor } from '../../../shared/helpers/getColor'
+import { getColor } from '../../../shared/helpers'
 import { palette } from '../../../../constants/Colors'
 import { useColorSchemeContext } from '../../../shared/hooks/useColorSchemeContext'
-import { useTenderListContext } from '../../hooks/useTenderListContext'
+import { useTenderListContext } from '../../hooks'
 
 export function ListEmpty () {
   const { colorScheme } = useColorSchemeContext()

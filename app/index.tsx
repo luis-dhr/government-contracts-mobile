@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import { TenderList } from '../sections/tender-list/components/TenderList'
 import { TenderSearch } from '../sections/search/components/TenderSearch'
 import { View } from '../sections/shared/components/Themed'
-import { useTenderList } from '../sections/tender-list/hooks/useTenderList'
+import { useTenderList } from '../sections/tender-list/hooks'
 
 export default function TenderListScreen () {
   const {

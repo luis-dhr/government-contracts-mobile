@@ -1,6 +1,6 @@
 import { Flex, Paragraph } from '../../../shared/components'
 import { FontAwesome } from '@expo/vector-icons'
-import { getColor } from '../../../shared/helpers/getColor'
+import { getColor } from '../../../shared/helpers'
 import { palette } from '../../../../constants/Colors'
 import { useColorSchemeContext } from '../../../shared/hooks/useColorSchemeContext'
 

@@ -1,6 +1,6 @@
 import { ParagraphProps } from './ParagraphProps'
 import { Text } from 'react-native'
-import { getFontFamily } from '../../helpers/getFontFamily'
+import { getFontFamily } from '../../helpers'
 import { memo, useMemo } from 'react'
 import { palette } from '../../../../constants/Colors'
 
