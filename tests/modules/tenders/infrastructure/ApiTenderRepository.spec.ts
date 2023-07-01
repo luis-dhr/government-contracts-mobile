@@ -1,6 +1,7 @@
 // import { TenderFromApi } from '../../../../modules/tenders/infrastructure/adapter-service/apiEntities'
 // import { adaptTender } from '../../../../modules/tenders/infrastructure/adapter-service/adaptTender'
-// import { getAll } from '../../../../modules/tenders/infrastructure'
+
+import { getAll } from '../../../../modules/tenders/infrastructure'
 
 // global.fetch = jest.fn(() =>
 //   Promise.resolve({
@@ -13,10 +14,16 @@
 // })
 
 // // Tests that an empty array is returned when API call is successful but no results are returned
-// it('test_empty_results', async () => {
-//   const result = await getAll()
-//   expect(result).toEqual([])
-// })
+it('test_empty_results', async () => {
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      json: () => Promise.resolve({ results: [] })
+    })
+  ) as jest.Mock
+
+  const result = await getAll()
+  expect(result).toEqual([])
+})
 
 // // Tests that an array of Tender objects is returned when API call is successful
 // it('test_successful_call', async () => {

@@ -20,10 +20,10 @@ export function TenderCard ({ tender, onPress }: TenderCardProps) {
             align='flex-start'
             style={{ marginBottom: 16, opacity: pressed ? 0.5 : 1 }}
           >
-            <Paragraph color={color} size={24} weight='bold'>
+            <Paragraph color={color} size={20} weight='bold'>
               {tender.title}
             </Paragraph>
-            <Paragraph weight='medium' size={18} color={colorSecondary}>
+            <Paragraph weight='medium' size={16} color={colorSecondary}>
               {tender.publisher}
             </Paragraph>
           </Flex>

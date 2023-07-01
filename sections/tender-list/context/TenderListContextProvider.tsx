@@ -1,4 +1,4 @@
-import { PAGE_SIZE, TOTAL_OF_RECORDS } from '@env'
+import { MAX_PAGES } from '@env'
 import { PropsWithChildren, useCallback, useEffect, useState } from 'react'
 import { Tender, TenderRepository } from '../../../modules/tenders/domain'
 import { TenderListContext } from './TenderListContext'
@@ -19,10 +19,7 @@ export const TenderListContextProvider = ({
 
     const list = await getAllTenders(repository)(currentPage)
     setTenderList(list)
-
-    if (list.length > 0) {
-      setMaxNumberOfPages(Math.ceil(TOTAL_OF_RECORDS / PAGE_SIZE))
-    }
+    setMaxNumberOfPages(MAX_PAGES)
 
     setPageIsLoaded(true)
   }, [repository, currentPage])

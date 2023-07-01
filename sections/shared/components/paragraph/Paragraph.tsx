@@ -13,7 +13,6 @@ export const Paragraph = memo((props: ParagraphProps) => {
 
   return (
     <Text
-      adjustsFontSizeToFit
       numberOfLines={lines}
       style={[{
         color,

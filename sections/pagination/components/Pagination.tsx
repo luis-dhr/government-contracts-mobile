@@ -29,7 +29,10 @@ export function Pagination (props: PaginationProps) {
         <PageEllipsis color={currentPage !== maxNumberOfPages ? color : 'transparent'} />
       </Flex>
 
-      <NextButton onPress={onNext} disabled={currentPage === maxNumberOfPages || !pageIsLoaded} />
+      <NextButton
+        onPress={onNext}
+        disabled={Number(currentPage) === Number(maxNumberOfPages) || !pageIsLoaded}
+      />
     </View>
   )
 }
