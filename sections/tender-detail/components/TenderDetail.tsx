@@ -1,8 +1,12 @@
 import { AccordionItem } from './accordion/AccordionItem'
-import { Button, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ContractData } from './contract/ContractData'
+import { Paragraph, Tag } from '../../shared/components'
+import { ParticipantData } from './participant/ParticipantData'
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import { Tender } from '../../../modules/tenders/domain'
 import { useColorSchemeContext } from '../../shared/hooks/useColorSchemeContext'
 
-export function TenderDetail () {
+export function TenderDetail ({ tender }: { tender: Tender }) {
   const { colorScheme } = useColorSchemeContext()
 
   return (
@@ -11,26 +15,16 @@ export function TenderDetail () {
         contentInsetAdjustmentBehavior='automatic'
         style={styles.container}
       >
-        <AccordionItem title='Native development' colorScheme={colorScheme}>
-          <Text style={styles.textSmall}>React Native lets you create truly native apps and
-            doesn't compromise your users' experiences. It provides a core set of platform
-            agnostic native components
-          </Text>
+        <AccordionItem title='Contratos' colorScheme={colorScheme}>
+          {tender.availableContracts.map(contract => (
+            <ContractData key={contract.id} contract={contract} />
+          ))}
         </AccordionItem>
-        <AccordionItem title='Fast refresh' colorScheme={colorScheme}>
-          <Text style={styles.textSmall}>See your changes as soon as you save.
-            With the power of JavaScript, React Native lets you iterate at
-            lightning speed.
-          </Text>
-        </AccordionItem>
-        <AccordionItem title='Cross-platform' colorScheme={colorScheme}>
-          <Text style={styles.textSmall}>React components wrap existing native code
-            and interact with native APIs via React's declarative UI paradigm
-            and JavaScript. This enables native app development for whole new teams
-            of developers
-          </Text>
-          <View style={styles.seperator} />
-          <Button title='See more...' />
+
+        <AccordionItem title='Participantes' colorScheme={colorScheme}>
+          {tender.participants.map(participant => (
+            <ParticipantData key={participant.id} participant={participant} />
+          ))}
         </AccordionItem>
       </ScrollView>
     </SafeAreaView>

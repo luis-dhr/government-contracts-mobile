@@ -8,6 +8,7 @@ export const TenderListContextProvider = ({
   children, repository
 }: PropsWithChildren<{ repository: TenderRepository }>) => {
   const [tenderList, setTenderList] = useState<Tender[]>([])
+  const [currentTender, setCurrentTender] = useState<Tender | null>(null)
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [maxNumberOfPages, setMaxNumberOfPages] = useState<number>(1)
   const [pageIsLoaded, setPageIsLoaded] = useState<boolean>(false)
@@ -32,7 +33,15 @@ export const TenderListContextProvider = ({
 
   return (
     <TenderListContext.Provider
-      value={{ tenderList, currentPage, maxNumberOfPages, pageIsLoaded, setCurrentPage }}
+      value={{
+        tenderList,
+        currentTender,
+        currentPage,
+        maxNumberOfPages,
+        pageIsLoaded,
+        setCurrentPage,
+        setCurrentTender
+      }}
     >
       {children}
     </TenderListContext.Provider>

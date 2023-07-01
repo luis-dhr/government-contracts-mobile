@@ -4,9 +4,11 @@ import { Tender } from '../../../modules/tenders/domain'
 import { TenderCard } from './card/TenderCard'
 import { tenderListStyles } from './tenderListStyles'
 import { useRouter } from 'expo-router'
+import { useTenderListContext } from '../hooks'
 
 export function TenderList ({ tenderList = [] }: { tenderList: Tender[] }) {
   const router = useRouter()
+  const { setCurrentTender } = useTenderListContext()
 
   return (
     <SafeAreaView style={tenderListStyles.tenderListContainer}>
@@ -16,7 +18,8 @@ export function TenderList ({ tenderList = [] }: { tenderList: Tender[] }) {
           <TenderCard
             tender={item}
             onPress={() => {
-              router.push({ pathname: '/modal', params: { id: 24, tender: item } })
+              setCurrentTender(item)
+              router.push('/modal')
             }}
           />
         )}
