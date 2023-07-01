@@ -2,14 +2,15 @@ import { StyleSheet } from 'react-native'
 
 export const tenderSearchStyles = StyleSheet.create({
   tenderSearch: {
-    flex: 1,
-    paddingTop: 8,
-    paddingBottom: 16
+    paddingVertical: 8,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#E5E5E5'
   },
   searchInput: {
+    flex: 1,
     paddingHorizontal: 4,
     paddingVertical: 8,
-    flex: 1,
     borderRadius: 16,
     fontSize: 16,
     fontFamily: 'Overpass'

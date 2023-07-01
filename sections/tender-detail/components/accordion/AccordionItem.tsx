@@ -1,6 +1,9 @@
 import { FontAwesome } from '@expo/vector-icons'
-import { PropsWithChildren, useState } from 'react'
-import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from 'react-native'
+import { LayoutAnimation, Platform, TouchableOpacity, UIManager, View } from 'react-native'
+import { Paragraph } from '../../../shared/components/paragraph/Paragraph'
+import { PropsWithChildren, memo, useCallback, useState } from 'react'
+import { accordionItemStyles } from './accordionItemStyles'
+import { getColor } from '../../../shared/helpers/getColor'
 
 if (Platform.OS === 'android') {
   UIManager.setLayoutAnimationEnabledExperimental(true)
@@ -8,51 +11,37 @@ if (Platform.OS === 'android') {
 
 interface AccordionItemProps extends PropsWithChildren {
   title: string
+  colorScheme?: 'light' | 'dark'
 }
 
-export function AccordionItem ({ children, title }: AccordionItemProps) {
-  const [expanded, setExpanded] = useState(false)
+export const AccordionItem = memo(
+  ({ children, title = '', colorScheme = 'light' }: AccordionItemProps) => {
+    const [expanded, setExpanded] = useState(false)
+    const backgroundColor = getColor(colorScheme, 'main')
+    const color = getColor(colorScheme, 'text')
 
-  function toggleItem () {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
-    setExpanded(!expanded)
+    const toggleItem = useCallback(() => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+      setExpanded((prevExpanded) => !prevExpanded)
+    }, [])
+
+    return (
+      <View style={accordionItemStyles.accordContainer}>
+        <TouchableOpacity
+          style={[accordionItemStyles.accordHeader, { backgroundColor }]}
+          onPress={toggleItem}
+        >
+          <Paragraph size={18} weight='bold' color={color}>{title}</Paragraph>
+
+          <FontAwesome
+            name={expanded ? 'chevron-up' : 'chevron-down'}
+            size={20}
+            color={color}
+          />
+        </TouchableOpacity>
+
+        {expanded && <View style={accordionItemStyles.accordBody}>{children}</View>}
+      </View>
+    )
   }
-
-  const body = <View style={styles.accordBody}>{children}</View>
-
-  return (
-    <View style={styles.accordContainer}>
-      <TouchableOpacity style={styles.accordHeader} onPress={toggleItem}>
-        <Text style={styles.accordTitle}>{title}</Text>
-        <FontAwesome
-          name={expanded ? 'chevron-up' : 'chevron-down'}
-          size={20}
-          color='#bbb'
-        />
-      </TouchableOpacity>
-      {expanded && body}
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  accordContainer: {
-    paddingBottom: 4,
-    width: '100%'
-  },
-  accordHeader: {
-    padding: 12,
-    backgroundColor: '#666',
-    color: '#eee',
-    // flex: 1,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  accordTitle: {
-    fontSize: 20
-  },
-  accordBody: {
-    padding: 12
-  }
-})
+)

@@ -2,10 +2,10 @@ import { PropsWithChildren } from 'react'
 import { TextProps } from 'react-native'
 
 export interface ParagraphProps extends PropsWithChildren {
-  lightColor?: string
-  darkColor?: string
-  size?: number
-  weight?: 'normal' | 'medium' | 'bold'
+  align?: 'left' | 'center' | 'right'
+  color?: string
   lines?: number
+  size?: number
   style?: TextProps['style']
+  weight?: 'normal' | 'medium' | 'bold'
 }

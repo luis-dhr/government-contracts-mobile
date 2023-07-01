@@ -1,25 +1,29 @@
+import { Pagination } from '../sections/pagination/components/Pagination'
 import { StyleSheet } from 'react-native'
 import { TenderList } from '../sections/tender-list/components/TenderList'
+import { TenderSearch } from '../sections/search/components/TenderSearch'
 import { View } from '../sections/shared/components/Themed'
+import { useTenderList } from '../sections/tender-list/hooks/useTenderList'
 
-export default function ContractListScreen () {
-  // const colorScheme = useColorScheme()
-  // const router = useRouter()
+export default function TenderListScreen () {
+  const {
+    currentPage, filteredTenderList, maxNumberOfPages, pageIsLoaded,
+    searchValue, onNext, onPrevious, setSearchValue
+  } = useTenderList()
 
   return (
     <View style={styles.container}>
-      {/* <TenderCard /> */}
-      <TenderList />
-      {/* <Pressable onPress={() => { router.push('/modal') }}>
-        {({ pressed }) => (
-          <FontAwesome
-            name='info-circle'
-            size={25}
-            color={Colors[colorScheme ?? 'light'].text}
-            style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-          />
-        )}
-      </Pressable> */}
+      {pageIsLoaded && <TenderSearch value={searchValue} onChange={setSearchValue} />}
+
+      <TenderList tenderList={filteredTenderList} />
+
+      {(maxNumberOfPages > 1) &&
+        <Pagination
+          current={currentPage}
+          max={maxNumberOfPages}
+          onNext={onNext}
+          onPrevious={onPrevious}
+        />}
     </View>
   )
 }

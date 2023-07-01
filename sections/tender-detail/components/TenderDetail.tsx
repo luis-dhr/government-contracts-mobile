@@ -1,26 +1,29 @@
 import { AccordionItem } from './accordion/AccordionItem'
 import { Button, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { useColorSchemeContext } from '../../shared/hooks/useColorSchemeContext'
 
 export function TenderDetail () {
+  const { colorScheme } = useColorSchemeContext()
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         contentInsetAdjustmentBehavior='automatic'
         style={styles.container}
       >
-        <AccordionItem title='Native development'>
+        <AccordionItem title='Native development' colorScheme={colorScheme}>
           <Text style={styles.textSmall}>React Native lets you create truly native apps and
             doesn't compromise your users' experiences. It provides a core set of platform
             agnostic native components
           </Text>
         </AccordionItem>
-        <AccordionItem title='Fast refresh'>
+        <AccordionItem title='Fast refresh' colorScheme={colorScheme}>
           <Text style={styles.textSmall}>See your changes as soon as you save.
             With the power of JavaScript, React Native lets you iterate at
             lightning speed.
           </Text>
         </AccordionItem>
-        <AccordionItem title='Cross-platform'>
+        <AccordionItem title='Cross-platform' colorScheme={colorScheme}>
           <Text style={styles.textSmall}>React components wrap existing native code
             and interact with native APIs via React's declarative UI paradigm
             and JavaScript. This enables native app development for whole new teams

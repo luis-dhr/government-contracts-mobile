@@ -1,17 +1,18 @@
-import { Flex, View } from '../../../shared/components'
+import { Flex, View } from '../../shared/components'
 import { SearchIcon } from './SearchIcon'
 import { TextInput } from 'react-native'
-import { getColor } from '../../../shared/helpers/getColor'
-import { palette } from '../../../../constants/Colors'
+import { getColor } from '../../shared/helpers/getColor'
+import { palette } from '../../../constants/Colors'
 import { tenderSearchStyles } from './tenderSearchStyles'
+import { useColorSchemeContext } from '../../shared/hooks/useColorSchemeContext'
 
 interface TenderSearchProps {
   value: string
   onChange: (text: string) => void
-  colorScheme: 'light' | 'dark'
 }
 
-export const TenderSearch = ({ value = '', onChange, colorScheme }: TenderSearchProps) => {
+export const TenderSearch = ({ value = '', onChange }: TenderSearchProps) => {
+  const { colorScheme } = useColorSchemeContext()
   const shadowColor = colorScheme === 'light' ? palette.secondary : palette.lightTertiary
   const backgroundColor = getColor(colorScheme, 'main')
   const color = getColor(colorScheme, 'text')
@@ -21,8 +22,9 @@ export const TenderSearch = ({ value = '', onChange, colorScheme }: TenderSearch
     <View style={tenderSearchStyles.tenderSearch}>
       <Flex
         background={backgroundColor}
+        justify='space-around'
         gap={8}
-        style={{ shadowColor, paddingLeft: 12, borderRadius: 16, elevation: 8 }}
+        style={{ shadowColor, paddingHorizontal: 12, borderRadius: 16, elevation: 8 }}
       >
         <SearchIcon size={16} color={color} />
 
@@ -31,7 +33,7 @@ export const TenderSearch = ({ value = '', onChange, colorScheme }: TenderSearch
           placeholder='Search'
           placeholderTextColor={textSecondary}
           value={value}
-          onChange={(e) => onChange(e.nativeEvent.text)}
+          onChangeText={onChange}
           style={[tenderSearchStyles.searchInput, { color, backgroundColor }]}
         />
       </Flex>

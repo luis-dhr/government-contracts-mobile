@@ -2,7 +2,7 @@ import { ContractFromApi, adaptContract } from './adaptContract'
 import { ParticipantFromApi, adaptParticipant } from './adaptParticipant'
 import { Tender } from '../../domain'
 
-interface TenderFromApi {
+export interface TenderFromApi {
   id: string
   tender: { id: string, title?: string }
   publisher: { name: string }

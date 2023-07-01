@@ -15,7 +15,7 @@ export function Tag ({ text, type = 'primary' }: { text: string, type: TagType }
 
   return (
     <View style={[tagStyles.tag, { backgroundColor }]}>
-      <Paragraph size={14} style={{ color: palette.light }}>
+      <Paragraph size={14}>
         {text}
       </Paragraph>
     </View>

@@ -2,11 +2,13 @@ import { ParagraphProps } from './ParagraphProps'
 import { Text } from 'react-native'
 import { getFontFamily } from '../../helpers/getFontFamily'
 import { memo, useMemo } from 'react'
-import { useThemeColor } from '../../hooks/useThemeColor'
+import { palette } from '../../../../constants/Colors'
 
 export const Paragraph = memo((props: ParagraphProps) => {
-  const { children, style, lightColor, darkColor, size = 16, lines = 1, weight = 'normal' } = props
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text')
+  const {
+    children, style, color = palette.light,
+    align = 'left', size = 16, lines = 1, weight = 'normal'
+  } = props
   const fontFamily = useMemo(() => getFontFamily(weight), [weight])
 
   return (
@@ -15,8 +17,11 @@ export const Paragraph = memo((props: ParagraphProps) => {
       numberOfLines={lines}
       style={[{
         color,
+        flex: 1,
         fontSize: size,
-        lineHeight: size + 4,
+        textAlignVertical: 'center',
+        textAlign: align,
+        width: '100%',
         fontFamily
       }, style]}
     >
