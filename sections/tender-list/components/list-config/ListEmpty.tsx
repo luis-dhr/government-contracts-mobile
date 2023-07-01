@@ -1,6 +1,8 @@
+import { ActivityIndicator, StyleSheet } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
 import { Paragraph, View } from '../../../shared/components'
-import { StyleSheet } from 'react-native'
 import { getColor } from '../../../shared/helpers/getColor'
+import { palette } from '../../../../constants/Colors'
 import { useColorSchemeContext } from '../../../shared/hooks/useColorSchemeContext'
 import { useTenderListContext } from '../../hooks/useTenderListContext'
 
@@ -11,9 +13,14 @@ export function ListEmpty () {
 
   return (
     <View style={listEmptyStyles.listEmpty}>
-      <Paragraph color={color} size={18} weight='medium' align='center'>
-        {!pageIsLoaded ? 'Cargando...' : 'Resultados no disponible :c'}
-      </Paragraph>
+      {!pageIsLoaded
+        ? <ActivityIndicator size={80} color={palette.primary} />
+        : (
+          <Paragraph color={color} size={18} weight='medium' align='center'>
+            <FontAwesome name='exclamation-circle' size={18} color={color} />
+            {' No se encontraron licitaciones'}
+          </Paragraph>
+          )}
     </View>
   )
 }

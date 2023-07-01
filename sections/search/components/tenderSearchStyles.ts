@@ -2,10 +2,9 @@ import { StyleSheet } from 'react-native'
 
 export const tenderSearchStyles = StyleSheet.create({
   tenderSearch: {
-    paddingVertical: 8,
-    width: '100%',
-    borderWidth: 1,
-    borderColor: '#E5E5E5'
+    paddingBottom: 8,
+    marginVertical: 4,
+    width: '100%'
   },
   searchInput: {
     flex: 1,

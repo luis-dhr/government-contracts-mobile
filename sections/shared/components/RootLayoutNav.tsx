@@ -1,7 +1,7 @@
 import { ColorSchemeContextProvider } from '../context/ColorSchemeContext'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { Stack } from 'expo-router'
-import { TenderListContextProvider } from '../../tender-list/context/TenderListContext'
+import { TenderListContextProvider } from '../../tender-list/context/TenderListContextProvider'
 import { createApiTenderRepository } from '../../../modules/tenders/infrastructure'
 import { useColorScheme } from 'react-native'
 
@@ -18,8 +18,8 @@ export function RootLayoutNav () {
               <Stack.Screen
                 name='index'
                 options={{
-                  title: 'Contract list ',
-                  headerTitleStyle: { fontSize: 18, fontFamily: 'Cabin' },
+                  title: 'Licitaciones',
+                  headerTitleStyle: { fontSize: 24, fontFamily: 'Cabin' },
                   statusBarStyle: 'dark'
                 }}
               />
@@ -28,8 +28,8 @@ export function RootLayoutNav () {
                 options={{
                   presentation: 'modal',
                   animation: 'slide_from_right',
-                  title: 'Details',
-                  headerTitleStyle: { fontSize: 18, fontFamily: 'Cabin' },
+                  title: 'Detalles',
+                  headerTitleStyle: { fontSize: 24, fontFamily: 'Cabin' },
                   statusBarStyle: 'dark'
                 }}
               />

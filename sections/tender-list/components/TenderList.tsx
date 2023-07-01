@@ -13,7 +13,12 @@ export function TenderList ({ tenderList = [] }: { tenderList: Tender[] }) {
       <FlatList
         data={tenderList}
         renderItem={({ item }) => (
-          <TenderCard tender={item} onPress={() => { router.push('/modal') }} />
+          <TenderCard
+            tender={item}
+            onPress={() => {
+              router.push({ pathname: '/modal', params: { id: 24, tender: item } })
+            }}
+          />
         )}
         keyExtractor={item => item.id}
         style={tenderListStyles.tenderList}

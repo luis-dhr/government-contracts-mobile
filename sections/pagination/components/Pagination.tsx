@@ -23,10 +23,10 @@ export function Pagination (props: PaginationProps) {
     <View style={[{ borderTopColor }, paginationStyles.pagination]}>
       <PreviousButton onPress={onPrevious} disabled={currentPage === 1 || !pageIsLoaded} />
 
-      <Flex gap={16} style={{ width: 'auto' }}>
-        {currentPage !== 1 && <PageEllipsis color={color} />}
+      <Flex gap={8} style={{ width: 'auto' }}>
+        <PageEllipsis color={currentPage !== 1 ? color : 'transparent'} />
         <CurrentPage page={currentPage} />
-        {currentPage !== maxNumberOfPages && <PageEllipsis color={color} />}
+        <PageEllipsis color={currentPage !== maxNumberOfPages ? color : 'transparent'} />
       </Flex>
 
       <NextButton onPress={onNext} disabled={currentPage === maxNumberOfPages || !pageIsLoaded} />

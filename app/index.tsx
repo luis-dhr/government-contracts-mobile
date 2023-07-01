@@ -8,7 +8,7 @@ import { useTenderList } from '../sections/tender-list/hooks/useTenderList'
 export default function TenderListScreen () {
   const {
     tenderList, filteredTenderList, pageIsLoaded, searchValue,
-    onNext, onPrevious, setSearchValue
+    maxNumberOfPages, onNext, onPrevious, setSearchValue
   } = useTenderList()
 
   return (
@@ -18,7 +18,7 @@ export default function TenderListScreen () {
 
       <TenderList tenderList={filteredTenderList} />
 
-      {(tenderList.length > 0) &&
+      {(maxNumberOfPages > 1) &&
         <Pagination onNext={onNext} onPrevious={onPrevious} />}
     </View>
   )

@@ -30,7 +30,7 @@ export const TenderSearch = ({ value = '', onChange }: TenderSearchProps) => {
 
         <TextInput
           inputMode='search'
-          placeholder='Search'
+          placeholder='Buscar licitaciones'
           placeholderTextColor={textSecondary}
           value={value}
           onChangeText={onChange}

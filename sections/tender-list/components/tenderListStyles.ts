@@ -6,14 +6,12 @@ const { height } = Dimensions.get(dim)
 export const tenderListStyles = StyleSheet.create({
   tenderListContainer: {
     width: '100%',
-    maxHeight: (height * 0.75),
-    borderWidth: 1,
-    borderColor: '#FFF'
+    maxHeight: (height * 0.75)
   },
   tenderList: {
     width: '100%'
   },
   tenderListFooter: {
-    height: (height * 0.1)
+    height: (height * 0.2)
   }
 })

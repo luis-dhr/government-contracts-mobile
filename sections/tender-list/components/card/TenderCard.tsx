@@ -1,23 +1,20 @@
 import { Flex, Paragraph, Tag } from '../../../shared/components'
 import { Pressable, View } from 'react-native'
-import { Tender } from '../../../../modules/tenders/domain'
+import { TenderCardProps } from './TenderCardProps'
 import { TenderDate, TenderId } from '../card-content'
-import { getColor } from '../../../shared/helpers/getColor'
-import { palette } from '../../../../constants/Colors'
+import { getNumberOfContracts, getNumberOfParticipants } from '../../helpers'
 import { tenderCardStyles } from './tenderCardStyles'
-import { useColorSchemeContext } from '../../../shared/hooks/useColorSchemeContext'
+import { useTenderCardColors } from '../../hooks'
 
-export function TenderCard ({ tender, onPress }: { tender: Tender, onPress?: () => void }) {
-  const { colorScheme } = useColorSchemeContext()
-  const backgroundColor = getColor(colorScheme, 'main')
-  const shadowColor = colorScheme === 'light' ? palette.secondary : palette.lightTertiary
-  const color = getColor(colorScheme, 'text')
-  const colorSecondary = getColor(colorScheme, 'textSecondary')
+export function TenderCard ({ tender, onPress }: TenderCardProps) {
+  const { backgroundColor, shadowColor, color, colorSecondary } = useTenderCardColors()
+  const availableContracts = getNumberOfContracts(tender.availableContracts.length)
+  const participants = getNumberOfParticipants(tender.participants.length)
 
   return (
     <Pressable onPress={onPress} style={tenderCardStyles.tenderCardContainer}>
       {({ pressed }) => (
-        <View style={[tenderCardStyles.tenderCard, { backgroundColor, shadowColor }]}>
+        <View style={[{ backgroundColor, shadowColor }, tenderCardStyles.tenderCard]}>
           <Flex
             direction='column'
             align='flex-start'
@@ -38,9 +35,9 @@ export function TenderCard ({ tender, onPress }: { tender: Tender, onPress?: () 
 
           <Flex justify='flex-start' gap={8}>
             {tender.availableContracts.length > 0 &&
-              <Tag text={`${tender.availableContracts.length} contratos`} type='primary' />}
+              <Tag text={availableContracts} type='primary' />}
             {tender.participants.length > 0 &&
-              <Tag text={`${tender.participants.length} participantes`} type='secondary' />}
+              <Tag text={participants} type='secondary' />}
           </Flex>
         </View>
       )}

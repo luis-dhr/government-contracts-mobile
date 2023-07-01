@@ -33,6 +33,7 @@ export function useTenderList () {
     pageIsLoaded,
     searchValue,
     tenderList,
+    maxNumberOfPages,
     onNext,
     onPrevious,
     setSearchValue
