@@ -6,8 +6,8 @@ import { palette } from '../../../../constants/Colors'
 
 export const Paragraph = memo((props: ParagraphProps) => {
   const {
-    children, style, color = palette.light,
-    align = 'left', size = 16, lines = 1, weight = 'normal'
+    children, style, color = palette.light, align = 'left',
+    size = 16, lines = 1, weight = 'normal', transform = 'none'
   } = props
   const fontFamily = useMemo(() => getFontFamily(weight), [weight])
 
@@ -22,6 +22,7 @@ export const Paragraph = memo((props: ParagraphProps) => {
         textAlignVertical: 'center',
         textAlign: align,
         width: '100%',
+        textTransform: transform,
         fontFamily
       }, style]}
     >

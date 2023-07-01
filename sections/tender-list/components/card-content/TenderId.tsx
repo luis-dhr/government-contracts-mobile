@@ -11,7 +11,7 @@ export function TenderId ({ tenderId }: { tenderId: string }) {
 
   return (
     <Flex justify='flex-start' gap={4} style={{ paddingHorizontal: 4 }}>
-      <FontAwesome name='hashtag' size={16} color={iconColor} />
+      <FontAwesome name='file-text-o' size={16} color={iconColor} />
 
       <Paragraph weight='medium' color={color}>
         {tenderId}

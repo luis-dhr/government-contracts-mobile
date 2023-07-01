@@ -1,5 +1,6 @@
-import { Contract, Period } from '../../domain'
+import { Contract } from '../../domain'
 import { ContractDetailsFromApi, adaptContractDetails } from './adaptContractDetails'
+import { adaptPeriod } from './adaptPeriod'
 import { getCurrencyValue } from './getCurrencyValue'
 
 export interface ContractFromApi {
@@ -7,7 +8,7 @@ export interface ContractFromApi {
   buyers: Array<{ name: string }>
   contractDetails: ContractDetailsFromApi
   dateSigned: string
-  period: Period
+  period: { startDate: string, endDate: string, durationInDays: number }
   suppliers: Array<{ name: string }>
   title: string
   valueWithTax: { amount: number, currency: string }
@@ -19,7 +20,7 @@ export function adaptContract (contract: ContractFromApi): Contract {
     buyers: contract.buyers.map((buyer) => buyer.name),
     contractDetails: adaptContractDetails(contract.contractDetails),
     dateSigned: new Date(contract.dateSigned),
-    period: contract.period,
+    period: adaptPeriod(contract.period),
     suppliers: contract.suppliers.map((supplier) => supplier.name),
     title: contract.title,
     valueWithTax: getCurrencyValue(contract.valueWithTax)

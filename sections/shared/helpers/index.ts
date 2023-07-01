@@ -1,0 +1,6 @@
+export * from './capitalize'
+export * from './formatDateToDDMMYYYY'
+export * from './formatDateToSpanish'
+export * from './getColor'
+export * from './getFontFamily'
+export * from './getPeriodString'

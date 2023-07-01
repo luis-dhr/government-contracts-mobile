@@ -7,5 +7,6 @@ export interface ParagraphProps extends PropsWithChildren {
   lines?: number
   size?: number
   style?: TextProps['style']
+  transform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize'
   weight?: 'normal' | 'medium' | 'bold'
 }

@@ -11,14 +11,16 @@ if (Platform.OS === 'android') {
 
 interface AccordionItemProps extends PropsWithChildren {
   title: string
+  isChild?: boolean
   colorScheme?: 'light' | 'dark'
 }
 
 export const AccordionItem = memo(
-  ({ children, title = '', colorScheme = 'light' }: AccordionItemProps) => {
+  ({ children, title = '', isChild = false, colorScheme = 'light' }: AccordionItemProps) => {
     const [expanded, setExpanded] = useState(false)
     const backgroundColor = getColor(colorScheme, 'main')
     const color = getColor(colorScheme, 'text')
+    const borderLeftColor = isChild ? getColor(colorScheme, 'text') : backgroundColor
 
     const toggleItem = useCallback(() => {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
@@ -28,7 +30,7 @@ export const AccordionItem = memo(
     return (
       <View style={accordionItemStyles.accordContainer}>
         <TouchableOpacity
-          style={[accordionItemStyles.accordHeader, { backgroundColor }]}
+          style={[accordionItemStyles.accordHeader, { backgroundColor, borderLeftColor }]}
           onPress={toggleItem}
         >
           <Paragraph size={18} weight='bold' color={color}>{title}</Paragraph>

@@ -3,9 +3,13 @@ import { View } from 'react-native'
 import { palette } from '../../../../constants/Colors'
 import { tagStyles } from './tagStyles'
 
-type TagType = 'primary' | 'secondary' | 'tertiary'
+interface TagProps {
+  text: string
+  type?: 'primary' | 'secondary' | 'tertiary'
+  size?: number
+}
 
-export function Tag ({ text, type = 'primary' }: { text: string, type: TagType }) {
+export function Tag ({ text, size = 14, type = 'primary' }: TagProps) {
   const types = {
     primary: palette.primary,
     secondary: palette.secondary,
@@ -15,7 +19,7 @@ export function Tag ({ text, type = 'primary' }: { text: string, type: TagType }
 
   return (
     <View style={[tagStyles.tag, { backgroundColor }]}>
-      <Paragraph size={14}>
+      <Paragraph size={size}>
         {text}
       </Paragraph>
     </View>

@@ -7,11 +7,13 @@ export const accordionItemStyles = StyleSheet.create({
   },
   accordHeader: {
     padding: 16,
+    borderLeftWidth: 8,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   accordBody: {
-    padding: 16
+    width: '100%',
+    padding: 8
   }
 })
