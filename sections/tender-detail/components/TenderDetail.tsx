@@ -34,7 +34,7 @@ export function TenderDetail ({ tender }: { tender: Tender }) {
           ))}
         </AccordionItem>
 
-        <Flex style={{ paddingTop: 24 }}>
+        <Flex style={{ paddingTop: 24, paddingBottom: 24 }}>
           <ExternalLink href={tender.source}>
             <Tag type='secondary' text='Fuente' size={18} />
           </ExternalLink>
