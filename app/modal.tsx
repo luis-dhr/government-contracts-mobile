@@ -5,14 +5,18 @@ import { Tender } from '../modules/tenders/domain'
 import { TenderDetail } from '../sections/tender-detail/components/TenderDetail'
 import { View } from '../sections/shared/components/Themed'
 import { useTenderListContext } from '../sections/tender-list/hooks'
+import { useColorSchemeContext } from '../sections/shared/hooks/useColorSchemeContext'
+import { getColor } from '../sections/shared/helpers'
 
 export default function ModalScreen () {
   const { currentTender } = useTenderListContext()
+  const { colorScheme } = useColorSchemeContext()
+  const color = getColor(colorScheme, 'text')
 
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Paragraph weight='bold' size={24}>
+        <Paragraph weight='bold' size={24} color={color}>
           {currentTender?.title}
         </Paragraph>
       </View>

@@ -1,21 +1,52 @@
 # INSTRUCTIONS
 
-Install the dependencies:
+## Prerequisites
+
+Before you begin, make sure you have the following software installed on your machine:
+
+- Node.js (version 16 or above)
+- npm (Node Package Manager)
+
+## Install the dependencies
+
+Run the following command to install the dependencies:
 
 ```bash
 npm install
 ```
 
-Set up the environment variables:
+## Environment Variables
+
+Add the following environment variables to your .env file:
+
+`API_URL`
+
+`PAGE_SIZE`
+
+`MAX_PAGES`
+
+
+## Running the App
+
+To run the Expo React Native app, follow these steps:
+
+1. Start the Metro Bundler:
 
 ```bash
-cp .env.example .env
+npm start
 ```
 
-Run the development server:
+2. After running the command, a QR code will be displayed in the terminal.
 
-```bash
-npm run start
-```
+3. To run the app on a physical device:
+- Install the Expo Go app on your iOS or Android device.
+- Scan the QR code displayed in the terminal using the Expo Go app.
 
-Scan the QR code in the Expo app on your phone or follow the terminal instructions to load up the emulator on your machine.
+4. To run the app on an emulator:
+- Follow the instructions specific to your platform to launch an emulator.
+- Press "a" in the terminal to open the app on an Android emulator.
+- Press "i" to open the app on an iOS simulator.
+
+## Are there any improvements you can make to your submission?
+
+The inclusion of unit tests for system components as well as the improvement of the graphical interface through style and usability adjustments can contribute significantly to improving this submission.
